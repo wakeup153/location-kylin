@@ -55,7 +55,7 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
   $scope.delTableAcl = function (type, name) {
     SweetAlert.swal({
       title: '',
-      text: "Are you sure to drop this table acl?",
+      text: "是否要删除table acl?",
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -72,14 +72,14 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
         },function () {
           loadingRequest.hide();
           loadTableAclList(type);
-          SweetAlert.swal('Success!', 'Table acl drop is done successfully', 'success');
+          SweetAlert.swal('成功!', 'Table acl成功删除', 'success');
         },function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('啊哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('啊哦...', "获取action失败.", 'error');
           }
           loadingRequest.hide();
         })
@@ -136,16 +136,16 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
         username: $scope.newTableAcl.name
       },{},function () {
         loadingRequest.hide();
-        SweetAlert.swal('Success!', 'Table acl add successfully', 'success');
+        SweetAlert.swal('成功!', 'Table acl添加成功', 'success');
         loadTableAclList()
         $scope.cancel()
       },function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '获取action失败.';
+          SweetAlert.swal('啊哦...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('啊哦...', "获取action失败.", 'error');
         }
         loadingRequest.hide();
       })

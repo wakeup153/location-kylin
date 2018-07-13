@@ -88,7 +88,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       },function(resp){
         $scope.loading = false;
         defer.resolve([]);
-        SweetAlert.swal('Oops...', resp, 'error');
+        SweetAlert.swal('啊哦...', resp, 'error');
         return defer.promise;
       });
     };
@@ -117,15 +117,15 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
               defer.resolve(cube.detail);
 
           } else {
-            SweetAlert.swal('Oops...', "No cube detail info loaded.", 'error');
+            SweetAlert.swal('阿哦...', "未加载多维数据集详细信息.", 'error');
           }
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('阿哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('阿哦...', "获取action失败.", 'error');
           }
         });
       }
@@ -150,7 +150,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.enable = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to enable the cube? Please note: if cube schema is changed in the disabled period, all segments of the cube will be discarded due to data and schema mismatch.',
+        text: '是否确实要启用多维数据集？请注意: 如果多维数据集架构在禁用期间发生更改, 则由于数据和架构不匹配, 多维数据集的所有段都将被丢弃。.',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -168,16 +168,16 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
               }
             });
-            SweetAlert.swal('Success!', 'Enable job was submitted successfully', 'success');
+            SweetAlert.swal('成功!', '成功提交启动任务', 'success');
           },function(e){
 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '获取action失败.';
+              SweetAlert.swal('阿哦...', msg, 'error');
             }else{
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('阿哦...', "获取action失败.", 'error');
             }
           });
         }
@@ -187,7 +187,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.purge = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to purge the cube? ',
+        text: '是否清除多维数据集? ',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -205,15 +205,15 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
              }
             });
-            SweetAlert.swal('Success!', 'Purge job was submitted successfully', 'success');
+            SweetAlert.swal('成功!', '成功提交清除任务', 'success');
           },function(e){
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '获取action失败.';
+              SweetAlert.swal('阿哦...', msg, 'error');
             }else{
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('阿哦...', "获取action失败.", 'error');
             }
           });
         }
@@ -224,7 +224,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to disable the cube? ',
+        text: '是否禁用多维数据集? ',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -242,16 +242,16 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
               }
             });
-            SweetAlert.swal('Success!', 'Disable job was submitted successfully', 'success');
+            SweetAlert.swal('成功!', '成功禁用多维数据集', 'success');
           },function(e){
 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '获取action失败.';
+              SweetAlert.swal('阿哦...', msg, 'error');
             }else{
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('阿哦...', "获取action失败.", 'error');
             }
           });
         }
@@ -263,7 +263,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
       SweetAlert.swal({
         title: '',
-        text: " Once it's dropped, your cube’s metadata and data will be cleaned up and can’t be restored back. ",
+        text: " 一旦删除, 多维数据集的元数据和数据将被清理, 无法恢复。 ",
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -275,17 +275,17 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           loadingRequest.show();
           CubeService.drop({cubeId: cube.name}, {}, function (result) {
             loadingRequest.hide();
-            SweetAlert.swal('Success!', 'Cube drop is done successfully', 'success');
+            SweetAlert.swal('成功!', '成功删除多维数据集', 'success');
             $scope.cubeList.cubes.splice($scope.cubeList.cubes.indexOf(cube),1);
           },function(e){
 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '获取action失败.';
+              SweetAlert.swal('阿哦...', msg, 'error');
             }else{
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('阿哦...', "获取action失败.", 'error');
             }
           });
         }
@@ -300,9 +300,9 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.migrateCube = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: "The cube will overwrite the same cube in prod env" +
-        "\nMigrating cube will elapse a couple of minutes." +
-        "\nPlease wait.",
+        text: "多维数据集将覆盖相同的多维数据集," +
+        "\n迁移多维数据集将经过几分钟," +
+        "\n请稍等.",
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -313,10 +313,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           loadingRequest.show();
           CubeService.autoMigrate({cubeId: cube.name, propName: $scope.projectModel.selectedProject}, {}, function (result) {
             loadingRequest.hide();
-            SweetAlert.swal('Success!', cube.name + ' migrate successfully!', 'success');
+            SweetAlert.swal('成功!', cube.name + ' 迁移成功!', 'success');
           },function(e){
             loadingRequest.hide();
-            SweetAlert.swal('Migrate failed!', "Please contact your ADMIN.", 'error');
+            SweetAlert.swal('迁移失败', "请联系管理员.", 'error');
           });
         }
       });
@@ -337,7 +337,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           if(cube.streaming){
             SweetAlert.swal({
               title: '',
-              text: "Are you sure to start the build?",
+              text: "是否开始创建?",
               type: '',
               showCancelButton: true,
               confirmButtonColor: '#DD6B55',
@@ -356,16 +356,16 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                     buildType:'BUILD'
                   }, function (job) {
                     loadingRequest.hide();
-                    SweetAlert.swal('Success!', 'Rebuild job was submitted successfully', 'success');
+                    SweetAlert.swal('成功!', '成功提交创建任务', 'success');
                   },function(e){
 
                     loadingRequest.hide();
                     if(e.data&& e.data.exception){
                       var message =e.data.exception;
-                      var msg = !!(message) ? message : 'Failed to take action.';
-                      SweetAlert.swal('Oops...', msg, 'error');
+                      var msg = !!(message) ? message : '获取action失败.';
+                      SweetAlert.swal('阿哦...', msg, 'error');
                     }else{
-                      SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                      SweetAlert.swal('阿哦...', "获取action失败.", 'error');
                     }
                   });
               }
@@ -402,7 +402,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             else {
               SweetAlert.swal({
                 title: '',
-                text: "Are you sure to start the build ?",
+                text: "是否开始创建?",
                 type: '',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
@@ -423,16 +423,16 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                     }, function (job) {
 
                       loadingRequest.hide();
-                      SweetAlert.swal('Success!', 'Rebuild job was submitted successfully', 'success');
+                      SweetAlert.swal('成功!', '成功提交创建任务', 'success');
                     },function(e){
 
                       loadingRequest.hide();
                       if(e.data&& e.data.exception){
                         var message =e.data.exception;
-                        var msg = !!(message) ? message : 'Failed to take action.';
-                        SweetAlert.swal('Oops...', msg, 'error');
+                        var msg = !!(message) ? message : '获取action失败.';
+                        SweetAlert.swal('阿哦...', msg, 'error');
                       }else{
-                        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                        SweetAlert.swal('阿哦...', "获取action失败.", 'error');
                       }
                     });
                 }
@@ -476,7 +476,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
     $scope.cloneCube = function(cube){
       if(!$scope.projectModel.selectedProject){
-        SweetAlert.swal('Oops...', "Please choose project before clone.", 'info');
+        SweetAlert.swal('阿哦...', "请在克隆前选择项目.", 'info');
         return;
       }
 
@@ -581,7 +581,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
   $scope.cloneCube = function(){
 
     if(!$scope.targetObj.targetProject){
-      SweetAlert.swal('Oops...', "Please select target project.", 'info');
+      SweetAlert.swal('阿哦...', "请选择目标项目.", 'info');
       return;
     }
 
@@ -592,7 +592,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to clone the cube? ',
+      text: '是否克隆多维数据集? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -604,16 +604,16 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
         loadingRequest.show();
         CubeService.clone({cubeId: cube.name}, $scope.cubeRequest, function (result) {
           loadingRequest.hide();
-          SweetAlert.swal('Success!', 'Clone cube successfully', 'success');
+          SweetAlert.swal('成功!', '克隆成功', 'success');
           location.reload();
         }, function (e) {
           loadingRequest.hide();
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('阿哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('阿哦...', "获取action失败.", 'error');
           }
         });
       }
@@ -645,7 +645,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
     $scope.message = null;
 
     if ($scope.jobBuildRequest.startTime >= $scope.jobBuildRequest.endTime) {
-      $scope.message = "WARNING: End time should be later than the start time.";
+      $scope.message = "警告: 结束时间应晚于开始时间.";
 
       return;
     }
@@ -655,7 +655,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
 
       loadingRequest.hide();
       $modalInstance.dismiss('cancel');
-      SweetAlert.swal('Success!', 'Rebuild job was submitted successfully', 'success');
+      SweetAlert.swal('成功!', '成功提交创建任务', 'success');
       scope.refreshCube(cube).then(function(_cube){
           $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
         });
@@ -671,7 +671,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           SweetAlert.swal({
             title:'',
             type:'info',
-            text: 'Empty cube segment found'+':'+_segment+', do you want to merge segments forcely ?',
+            text: '找到空的多维数据集段'+':'+_segment+', 是否强制合并数据段?',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             closeOnConfirm: true
@@ -689,7 +689,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           SweetAlert.swal({
             title:'',
             type:'info',
-            text: 'There ares gaps between segments, do you want to merge segments forcely ?',
+            text: '有差距数据段, 是否强制合并段 ?',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             closeOnConfirm: true
@@ -702,10 +702,10 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           });
           return;
         }
-        var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '获取action失败.';
+        SweetAlert.swal('阿哦...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('阿哦...', "获取action失败.", 'error');
       }
     });
   };
@@ -769,7 +769,7 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
   $scope.deleteSegment = function() {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to delete segment ['+$scope.segment.selected.name+']? ',
+      text: '是否删除数据段 ['+$scope.segment.selected.name+']? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -792,9 +792,9 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
           if(e.data&& e.data.exception){
             var message =e.data.exception;
             var msg = !!(message) ? message : 'Failed to delete segment.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('阿哦...', msg, 'error');
           }else{
-            SweetAlert.swal('Oops...', 'Failed to delete segment.', 'error');
+            SweetAlert.swal('阿哦...', 'Failed to delete segment.', 'error');
           }
         });
       }
@@ -898,10 +898,10 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
       if (e.data && e.data.exception) {
         var message = e.data.exception;
 
-        var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '获取action失败.';
+        SweetAlert.swal('阿哦...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('阿哦...', "获取action失败.", 'error');
       }
     });
   };
