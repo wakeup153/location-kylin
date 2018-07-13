@@ -29,7 +29,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.getEnv = function () {
     AdminService.env({}, function (env) {
       $scope.envStr = env.env;
-      MessageService.sendMsg('成功获取服务器环境', '成功', {});
+      MessageService.sendMsg('成功获取服务器环境', 'success', {});
 //            SweetAlert.swal('Success!', 'Server environment get successfully', 'success');
     }, function (e) {
       if (e.data && e.data.exception) {
@@ -45,7 +45,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.getConfig = function () {
     AdminService.config({}, function (config) {
       $scope.configStr = config.config;
-      MessageService.sendMsg('成功获取服务器配置', '成功', {});
+      MessageService.sendMsg('成功获取服务器配置', 'success', {});
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
@@ -60,7 +60,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.reloadConfig = function () {
     SweetAlert.swal({
       title: '',
-      text: '是否重载配置',
+      text: '是否重载配置?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -69,7 +69,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         CacheService.reloadConfig({}, function () {
-          SweetAlert.swal('成功!', '成功重载配置', 'success');
+          SweetAlert.swal('成功!', '重载配置成功', 'success');
           $scope.getConfig();
         }, function (e) {
           if (e.data && e.data.exception) {
@@ -96,7 +96,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         CacheService.clean({}, function () {
-          SweetAlert.swal('成功!', '成功重载缓存', 'success');
+          SweetAlert.swal('成功!', '重载缓存成功', 'success');
           ProjectService.listReadable({}, function(projects) {
             ProjectModel.setProjects(projects);
           });
@@ -172,7 +172,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         AdminService.updateConfig({}, {key: 'kylin.query.cache-enabled', value: false}, function () {
-          SweetAlert.swal('成功!', '禁用缓存成功!', 'success');
+          SweetAlert.swal('成功!', '禁用查询缓存成功!', 'success');
           location.reload();
         }, function (e) {
           if (e.data && e.data.exception) {

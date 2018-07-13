@@ -61,7 +61,7 @@ KylinApp
 //         will load table when enter this page,null or not
       $scope.aceSrcTbLoaded();
     }, function (resp) {
-      SweetAlert.swal('Oops...', resp, 'error');
+      SweetAlert.swal('啊哦...', resp, 'error');
     });
 
 
@@ -83,7 +83,7 @@ KylinApp
 
     $scope.openModal = function () {
       if(!$scope.projectModel.selectedProject){
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('啊哦...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
@@ -131,7 +131,7 @@ KylinApp
 
     $scope.openTreeModal = function () {
       if(!$scope.projectModel.selectedProject){
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('啊哦...', "请选择项目.", 'info');
         return;
       }
 
@@ -181,10 +181,10 @@ KylinApp
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '获取action失败.';
+          SweetAlert.swal('啊哦...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('啊哦...', "获取action失败.", 'error');
         }
         loadingRequest.hide();
       })
@@ -204,7 +204,7 @@ KylinApp
       }, function (isConfirm) {
         if (isConfirm) {
           if (!$scope.projectModel.selectedProject) {
-            SweetAlert.swal('', 'Please choose your project first!.', 'info');
+            SweetAlert.swal('', '请先选择你的项目!.', 'info');
             return;
           }
           loadingRequest.show();
@@ -231,10 +231,10 @@ KylinApp
           }, function (e) {
             if (e.data && e.data.exception) {
               var message = e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '获取action失败.';
+              SweetAlert.swal('啊哦...', msg, 'error');
             } else {
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('啊哦...', "获取action失败.", 'error');
             }
             loadingRequest.hide();
           })
@@ -284,10 +284,10 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('啊哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('啊哦...', "获取action失败.", 'error');
           }
           $scope.hiveLoaded = true;
         });
@@ -434,12 +434,12 @@ KylinApp
         }
 
         if ($scope.tableNames.trim() === "") {
-          SweetAlert.swal('', 'Please input table(s) you want to load.', 'info');
+          SweetAlert.swal('', '请输入要加载的表.', 'info');
           return;
         }
 
         if (!$scope.projectName) {
-          SweetAlert.swal('', 'Please choose your project first!.', 'info');
+          SweetAlert.swal('', '请先选择你的项目!.', 'info');
           return;
         }
 
@@ -486,7 +486,7 @@ KylinApp
     //streaming model
     $scope.openStreamingSourceModal = function () {
       if(!$scope.projectModel.selectedProject){
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('啊哦...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
@@ -543,11 +543,11 @@ KylinApp
           kafkaConfig: angular.toJson($scope.kafkaMeta)
         }, function (request) {
           if (request.successful) {
-            SweetAlert.swal('', 'Updated the streaming successfully.', 'success');
+            SweetAlert.swal('', '成功更新流.', 'success');
             $scope.cancel();
           } else {
             var message = request.message;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '获取action失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta,true),
@@ -558,7 +558,7 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '获取action失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta,true),
@@ -825,7 +825,7 @@ KylinApp
 
         SweetAlert.swal({
           title:"",
-          text: 'Are you sure to save the streaming table and cluster info ?',
+          text: '是否保存流式表和集群信息 ?',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
           confirmButtonText: "Yes",
@@ -842,11 +842,11 @@ KylinApp
                 kafkaConfig: angular.toJson($scope.kafkaMeta)
               }, function (request) {
                 if (request.successful) {
-                  SweetAlert.swal('', 'Updated the streaming successfully.', 'success');
+                  SweetAlert.swal('', '流更新成功.', 'success');
                   $location.path("/models");
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '获取action失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta,true),
@@ -857,7 +857,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '获取action失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta,true),
@@ -882,12 +882,12 @@ KylinApp
                 kafkaConfig: angular.toJson($scope.kafkaMeta)
               }, function (request) {
                 if (request.successful) {
-                  SweetAlert.swal('', 'Created the streaming successfully.', 'success');
+                  SweetAlert.swal('', '流创建成功.', 'success');
                   $scope.cancel();
                   scope.aceSrcTbLoaded(true);
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '获取action失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta,true),
@@ -898,7 +898,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '获取action失败.';
 
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,

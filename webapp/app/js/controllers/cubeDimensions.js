@@ -224,7 +224,7 @@ KylinApp.controller('CubeDimensionsCtrl', function ($scope, $modal,MetaModel,cub
                     var _columns = angular.copy($scope.newDimension.derived).sort();
                     for(var i = 0;i<_columns.length-1;i++){
                         if(_columns[i]==_columns[i+1]&&_columns[i]!==""){
-                            errors.push("重复列 "+_columns[i]+".");
+                            errors.push("列 "+_columns[i]+"重复.");
                         }
                     }
                 }

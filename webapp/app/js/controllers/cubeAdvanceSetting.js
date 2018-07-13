@@ -433,10 +433,10 @@ KylinApp.controller('CubeAdvanceSettingCtrl', function ($scope, $modal,cubeConfi
         $scope.cubeMetaFrame.mandatory_dimension_set_list.push($scope.mandatoryDimensionSet.select);
         $scope.mandatoryDimensionSet.select = [];
       } else {
-        swal('阿哦...', 'Dimension set 已存在', 'warning');
+        swal('阿哦...', '多维集合已存在', 'warning');
       }
     } else {
-      swal('阿哦...', 'Dimension set 不能为空', 'warning');
+      swal('阿哦...', '多维集合不能为空', 'warning');
     }
   };
 

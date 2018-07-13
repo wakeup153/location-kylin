@@ -28,17 +28,17 @@ KylinApp.controller('IndexCtrl', function ($scope, $location, $anchorScroll) {
     {
       image: carouselImg,
       caption: 'Kylin',
-      text: 'Get your data ready for analytics'
+      text: '获取分析准备数据'
     },
     {
       image: carouselImg,
       caption: 'Kylin',
-      text: 'Process and transform data from multiple sources'
+      text: '从多个源处理和转换数据'
     },
     {
       image: carouselImg,
       caption: 'Kylin',
-      text: 'Harness the power of Hadoop with zero coding and no deployment'
+      text: '利用Hadoop，无需编码，无需部署'
     }
   ];
 });

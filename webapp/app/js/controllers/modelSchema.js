@@ -203,7 +203,7 @@ KylinApp.controller('ModelSchemaCtrl', function ($scope, QueryService, UserServi
 
     var errors = [];
     if (!modelsManager.selectedModel.dimensions.length) {
-      errors.push("No dimensions defined.");
+      errors.push("未定义维度.");
     }
     var isDimensionDefined = false;
     angular.forEach(modelsManager.selectedModel.dimensions, function (_dimension) {
@@ -212,14 +212,14 @@ KylinApp.controller('ModelSchemaCtrl', function ($scope, QueryService, UserServi
       }
     });
     if(!isDimensionDefined){
-      errors.push("No dimensions defined.");
+      errors.push("未定义维度.");
     }
     var errorInfo = "";
     angular.forEach(errors, function (item) {
       errorInfo += "\n" + item;
     });
     if (errors.length) {
-      SweetAlert.swal('Oops...', errorInfo, 'warning');
+      SweetAlert.swal('啊哦...', errorInfo, 'warning');
       return false;
     } else {
       return true;

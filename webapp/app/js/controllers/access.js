@@ -21,9 +21,9 @@
 KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageService, AuthenticationService, SweetAlert) {
 
   $scope.accessTooltip = "<div style='text-align: left'>" +
-  "<label>Access对项目意味着什么？</label>" +
+  "<label>权限对项目意味着什么？</label>" +
   "<ul><li>QUERY: 查询多维数据集权限</li>" +
-  "<li>OPERATION: 允许重建、恢复和取消任务的权限,还包括查询多维数据集的操作权限</li>" +
+  "<li>OPERATION: 允许创建、恢复和取消任务的权限,还包括查询多维数据集的操作权限</li>" +
   "<li>MANAGEMENT: 允许编辑/删除多维数据集, 还包括查询多维数据集的操作权限。</li>" +
   "<li>ADMIN: 具有所有权限, 包含MANAGEMENT的权限,</li></ul></div>";
 
@@ -52,7 +52,7 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
       entity.accessEntities = accessEntities;
       $scope.resetNewAcess();
 //            MessageService.sendMsg('Access granted!', 'success', {});
-      SweetAlert.swal('成功!', '获取授权!', 'success');
+      SweetAlert.swal('成功!', '获取授权成功!', 'success');
     }, function (e) {
       grantRequst.uuid = uuid;
       if (e.status == 404) {
@@ -80,7 +80,7 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
     AccessService.update({type: type, uuid: entity.uuid}, updateRequst, function (accessEntities) {
       entity.accessEntities = accessEntities;
 //            MessageService.sendMsg('Access granted!', 'success', {});
-      SweetAlert.swal('', '获取授权!', 'success');
+      SweetAlert.swal('', '获取授权成功!', 'success');
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;

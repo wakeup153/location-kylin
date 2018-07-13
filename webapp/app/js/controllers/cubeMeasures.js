@@ -177,11 +177,11 @@ KylinApp.controller('CubeMeasuresCtrl', function ($scope, $modal,MetaModel,cubes
   $scope.saveNewMeasure = function () {
     if ($scope.newMeasure.function.expression === 'TOP_N' ) {
       if($scope.newMeasure.function.parameter.value == ""){
-        SweetAlert.swal('', '[TOP_N] ORDER|SUM by Column是必需的', 'warning');
+        SweetAlert.swal('', '[TOP_N] ORDER|SUM by Column是必要的', 'warning');
         return false;
       }
       if($scope.convertedColumns.length<1){
-        SweetAlert.swal('', '[TOP_N] Group by Column是必需的', 'warning');
+        SweetAlert.swal('', '[TOP_N] Group by Column是必要的', 'warning');
         return false;
       }
 
@@ -192,7 +192,7 @@ KylinApp.controller('CubeMeasuresCtrl', function ($scope, $modal,MetaModel,cubes
           hasExisted.push($scope.convertedColumns[column].name);
         }
         else{
-          SweetAlert.swal('', '列名['+$scope.convertedColumns[column].name+'] 已存在.', 'warning');
+          SweetAlert.swal('', '列 ['+$scope.convertedColumns[column].name+'] 已存在.', 'warning');
           return false;
         }
         if ($scope.convertedColumns[column].encoding == 'int' && ($scope.convertedColumns[column].valueLength < 1 || $scope.convertedColumns[column].valueLength > 8)) {
@@ -227,7 +227,7 @@ KylinApp.controller('CubeMeasuresCtrl', function ($scope, $modal,MetaModel,cubes
           hasExisted.push($scope.convertedColumns[column].name);
         }
         else{
-          SweetAlert.swal('', '列名['+$scope.convertedColumns[column].name+']已存在.', 'warning');
+          SweetAlert.swal('', '列 ['+$scope.convertedColumns[column].name+'] 已存在.', 'warning');
           return false;
         }
       }
@@ -241,7 +241,7 @@ KylinApp.controller('CubeMeasuresCtrl', function ($scope, $modal,MetaModel,cubes
     }
 
     if ($scope.isNameDuplicated($scope.cubeMetaFrame.measures, $scope.newMeasure) == true) {
-      SweetAlert.swal('', 'measure名: ' + $scope.newMeasure.name + ' 重复', 'warning');
+      SweetAlert.swal('', '度量: ' + $scope.newMeasure.name + ' 重复', 'warning');
       return false;
     }
 

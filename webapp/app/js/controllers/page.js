@@ -246,7 +246,7 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
 	delete $scope.proj.override_kylin_properties[""];
     if ($scope.state.isEdit) {
       ProjectService.update({}, {formerProjectName: $scope.state.oldProjName, projectDescData: angular.toJson($scope.proj)}, function (newProj) {
-        SweetAlert.swal('Success!', 'Project update successfully!', 'success');
+        SweetAlert.swal('成功!', '项目更新成功!', 'success');
 
         //update project in project model
         ProjectModel.updateProject($scope.proj.name, $scope.state.oldProjName);
@@ -256,10 +256,10 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '获取action失败.';
+          SweetAlert.swal('啊哦...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('啊哦...', "获取action失败.", 'error');
         }
       });
     }
@@ -268,8 +268,8 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
         $modalInstance.dismiss('cancel');
         $cookieStore.put("project", newProj.name);
         SweetAlert.swal({
-          title: "Success!",
-          text: "New project created successfully!",
+          title: "成功!",
+          text: "新项目创建成功!",
           confirmButtonClass: 'btn-primary',
           type: "success"
         },function(){
@@ -282,10 +282,10 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '获取action失败.';
+          SweetAlert.swal('啊哦...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('啊哦...', "获取action失败.", 'error');
         }
       });
     }

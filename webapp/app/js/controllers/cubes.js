@@ -786,15 +786,15 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
               scope.cubeList.cubes[scope.cubeList.cubes.indexOf(cube)] = _cube;
            }
           });
-          SweetAlert.swal('Success!', 'Delete segment successfully', 'success');
+          SweetAlert.swal('成功!', '成功删除数据段', 'success');
         },function(e){
           loadingRequest.hide();
           if(e.data&& e.data.exception){
             var message =e.data.exception;
-            var msg = !!(message) ? message : 'Failed to delete segment.';
+            var msg = !!(message) ? message : '删除数据段失败.';
             SweetAlert.swal('阿哦...', msg, 'error');
           }else{
-            SweetAlert.swal('阿哦...', 'Failed to delete segment.', 'error');
+            SweetAlert.swal('阿哦...', '删除数据段失败.', 'error');
           }
         });
       }
@@ -855,7 +855,7 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
 
   $scope.refresh = function() {
     if (!$scope.lookup.select.table_name) {
-      SweetAlert.swal('Warning', 'Lookup table should not be empty', 'warning');
+      SweetAlert.swal('警告', '查阅表格不应为空', 'warning');
       return;
     }
 
@@ -863,18 +863,18 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
     var lookupTable = _.find(cube.detail.snapshot_table_desc_list, function(table){ return table.table_name == $scope.lookup.select.table_name});
     if (!!lookupTable) {
       if (!lookupTable.global && $scope.lookup.select.segments.length == 0) {
-        SweetAlert.swal('Warning', 'Segment should not be empty', 'warning');
+        SweetAlert.swal('警告', '数据段不应为空', 'warning');
         return;
       }
     } else {
       // cube lookup table
       lookupTable = _.find($scope.cubeLookups, function(table){ return table == $scope.lookup.select.table_name});
       if (!lookupTable) {
-        SweetAlert.swal('Warning', 'Lookup table not existed in cube', 'warning');
+        SweetAlert.swal('警告', '多维数据集中不存在查阅表', 'warning');
         return;
       } else {
         if ($scope.lookup.select.segments.length == 0) {
-          SweetAlert.swal('Warning', 'Segment should not be empty', 'warning');
+          SweetAlert.swal('警告', '数据段不应为空', 'warning');
           return;
         }
       }
@@ -889,7 +889,7 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
     CubeService.lookupRefresh({cubeId: cube.name}, lookupSnapshotBuildRequest, function (job) {
       loadingRequest.hide();
       $modalInstance.dismiss('cancel');
-      SweetAlert.swal('Success!', 'Lookup refresh job was submitted successfully', 'success');
+      SweetAlert.swal('成功!', '成功提交刷新任务', 'success');
       scope.refreshCube(cube).then(function(_cube){
           $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
         });

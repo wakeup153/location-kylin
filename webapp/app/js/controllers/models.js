@@ -97,7 +97,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
 
     SweetAlert.swal({
       title: '',
-      text: "Are you sure to drop this model?",
+      text: "是否删除模型?",
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -110,16 +110,16 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
         ModelService.drop({modelId: model.name}, {}, function (result) {
           loadingRequest.hide();
 //                    CubeList.removeCube(cube);
-          SweetAlert.swal('Success!', 'Model drop is done successfully', 'success');
+          SweetAlert.swal('成功!', '成功删除模型', 'success');
           location.reload();
         }, function (e) {
           loadingRequest.hide();
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('啊哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('啊哦...', "获取action失败.", 'error');
           }
         });
       }
@@ -152,7 +152,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
     		  $location.path("/models/edit/" + model.name);
     	  }
       } else {
-        SweetAlert.swal('Sorry','This model is still used by '+ cubename.join(','));
+        SweetAlert.swal('抱歉','模型任用于 '+ cubename.join(','));
       }
     })
 
@@ -262,7 +262,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
   $scope.cloneModel = function(){
 
     if(!$scope.targetObj.targetProject){
-      SweetAlert.swal('Oops...', "Please select target project.", 'info');
+      SweetAlert.swal('啊哦...', "请选择目标项目.", 'info');
       return;
     }
 
@@ -273,7 +273,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to clone the model? ',
+      text: '是否克隆模型? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -285,16 +285,16 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
         loadingRequest.show();
         ModelService.clone({modelId: model.name}, $scope.modelRequest, function (result) {
           loadingRequest.hide();
-          SweetAlert.swal('Success!', 'Clone model successfully', 'success');
+          SweetAlert.swal('成功!', '成功克隆模型', 'success');
           location.reload();
         }, function (e) {
           loadingRequest.hide();
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取action失败.';
+            SweetAlert.swal('啊哦...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('啊哦...', "获取action失败.", 'error');
           }
         });
       }

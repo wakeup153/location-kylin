@@ -76,7 +76,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             cube.detail.notify_list = cube.notifyListString.split(",");
         }
         CubeService.updateNotifyList({cubeId: cube.name}, cube.detail.notify_list, function () {
-            SweetAlert.swal('成功!', '成功更新通知列表!', 'success');
+            SweetAlert.swal('成功!', '更新通知列表成功!', 'success');
         },function(e){
             if(e.data&& e.data.exception){
                 var message =e.data.exception;
@@ -238,8 +238,8 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 }
             };
             $scope.currentOptions.chart.sunburst = getSunburstDispatch();
-            $scope.currentOptions.title.text = 'Current Cuboid Distribution';
-            $scope.currentOptions.subtitle.text = '[Cuboid Count: ' + data.nodeInfos.length + '] [Row Count: ' + data.totalRowCount + ']';
+            $scope.currentOptions.title.text = '当前多维数据集分布';
+            $scope.currentOptions.subtitle.text = '[多维数据集数量: ' + data.nodeInfos.length + '] [行数: ' + data.totalRowCount + ']';
         } else if ('recommend' === type) {
             $scope.recommendData = [chartData];
             $scope.recommendOptions = angular.copy(cubeConfig.baseChartOptions);
@@ -257,8 +257,8 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 }
             };
             $scope.recommendOptions.chart.sunburst = getSunburstDispatch();
-            $scope.recommendOptions.title.text = 'Recommend Cuboid Distribution';
-            $scope.recommendOptions.subtitle.text = '[Cuboid Count: ' + data.nodeInfos.length + '] [Row Count: ' + data.totalRowCount + ']';
+            $scope.recommendOptions.title.text = '多维数据集分布推送';
+            $scope.recommendOptions.subtitle.text = '[多维数据集数量: ' + data.nodeInfos.length + '] [Row Count: ' + data.totalRowCount + ']';
         }
     };
 
